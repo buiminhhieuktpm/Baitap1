@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Trang chủ</title>
+</head>
+<body>
+<table 
+								style="font-family: arial;">
+								<tbody>
+									<tr>
+										<th style="text-align: center;">id</th>
+										<th style="text-align: center;">name</th>
+										<th style="text-align: center;">price</th>
+										<th style="text-align: center;">amount</th>
+										<th style="text-align: center;">Action</th>
+									</tr>
+									<tr th:each="c : ${list}" style="text-align: center;">
+										<td th:text="${c.id}"></td>
+										<td th:text="${c.name}"></td>
+										<td th:text="${c.price}"></td>
+										<td th:text="${c.amount}"></td>
+										<td><a th:href="@{'/admin/edit/'+${c.id}}">Edit</a></td>
+										<td><a th:href="@{'/admin/delete/'+${c.id}}">Delete</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<a th:href="@{/admin/add}">Thêm sản phẩm</a>
+</body>
+</html>
